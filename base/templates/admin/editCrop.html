@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Crop</title>
+
+  <link rel="stylesheet" href="../../static/adminResourses/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../static/adminResourses/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../static/adminResourses/css/style.css">
+</head>
+
+<body class="sidebar-light">
+<div class="container-scroller">
+
+  {% include "admin/header.html" %}
+
+  <div class="container-fluid page-body-wrapper">
+
+    {% include "admin/menu.html" %}
+
+    <div class="main-panel">
+      <div class="content-wrapper">
+
+        <div class="row grid-margin">
+          <div class="col-12">
+            <div class="card">
+
+              <div class="card-header bg-gradient-primary text-white">
+                <h4 class="mb-0">Edit Crop</h4>
+              </div>
+
+              <div class="card-body">
+
+                <!-- ✅ FORM -->
+                <form method="POST" action="/editCrops">
+
+                  <!-- Hidden ID -->
+                  <input type="hidden" name="crop_id" value="{{ crop.crop_id }}">
+
+                  <!-- Crop Name -->
+                  <div class="form-group row">
+                    <div class="col-lg-3">
+                      <label class="col-form-label">Crop Name</label>
+                    </div>
+                    <div class="col-lg-8">
+                      <input class="form-control"
+                             type="text"
+                             name="crop_name"
+                             value="{{ crop.crop_name }}"
+                             required>
+                    </div>
+                  </div>
+
+                  <!-- Description -->
+                  <div class="form-group row">
+                    <div class="col-lg-3">
+                      <label class="col-form-label">Description</label>
+                    </div>
+                    <div class="col-lg-8">
+                      <textarea class="form-control"
+                                name="crop_description"
+                                rows="3"
+                                required>{{ crop.crop_description }}</textarea>
+                    </div>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">
+                      Update
+                    </button>
+
+                    <a href="/viewCrops" class="btn btn-secondary">
+                      Cancel
+                    </a>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {% include "admin/footer.html" %}
+
+    </div>
+  </div>
+</div>
+
+<script src="../../static/adminResourses/js/vendor.bundle.base.js"></script>
+<script src="../../static/adminResourses/js/off-canvas.js"></script>
+<script src="../../static/adminResourses/js/hoverable-collapse.js"></script>
+<script src="../../static/adminResourses/js/template.js"></script>
+<script src="../../static/adminResourses/js/settings.js"></script>
+<script src="../../static/adminResourses/js/todolist.js"></script>
+
+</body>
+</html>

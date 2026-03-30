@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Edit Disease</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="../../static/adminResourses/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../static/adminResourses/css/vendor.bundle.base.css">
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../../static/adminResourses/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../../static/adminResourses/images/favicon.png" />
+</head>
+
+<body class="sidebar-light">
+  <div class="container-scroller">
+
+    {% include "admin/header.html" %}
+
+    <div class="container-fluid page-body-wrapper">
+
+      {% include "admin/menu.html" %}
+
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row grid-margin">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Update Disease</h4>
+
+                  <!-- Form start -->
+                  <form action="/updateDisease" method="POST">
+
+                    <!-- Hidden field for disease_id -->
+                    <input type="hidden" name="disease_id" value="{{ disease.disease_id }}">
+
+                    <!-- Crop Name -->
+                    <div class="form-group row">
+                        <div class="col-lg-3">
+                            <label class="col-form-label">Crop Name</label>
+                        </div>
+                           <div class="col-lg-8">
+                            <select class="form-control" name="disease_crop_id" required>
+
+                                {% for i in crop_vo_list %}
+
+                                    {% if i.crop_id == disease.disease_crop_id %}
+                                        <option value="{{ i.crop_id }}" selected>{{ i.crop_name }}</option>
+                                    {% else %}
+                                        <option value="{{ i.crop_id }}">{{ i.crop_name }}</option>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                            </select>
+                            </div>
+                    </div>
+
+                    <!-- Disease Name -->
+                    <div class="form-group row">
+                      <div class="col-lg-3">
+                        <label class="col-form-label">Disease Name</label>
+                      </div>
+                      <div class="col-lg-8">
+                        <input class="form-control" maxlength="50" name="disease_name"
+                          value="{{ disease.disease_name }}" type="text" placeholder="Enter Disease Name.." required>
+                      </div>
+                    </div>
+
+
+
+                    <!-- Description -->
+                    <div class="form-group row">
+                      <div class="col-lg-3">
+                        <label class="col-form-label">Description</label>
+                      </div>
+                      <div class="col-lg-8">
+                        <textarea id="maxlength-textarea" class="form-control" maxlength="500" rows="4"
+                          name="disease_description"
+                          placeholder="Enter Disease Description.." required>{{ disease.disease_description }}</textarea>
+                      </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group row mt-3">
+                      <div class="col-lg-8 offset-lg-3">
+                        <button type="submit" class="btn btn-primary">Update Disease</button>
+                      </div>
+                    </div>
+
+                  </form>
+                  <!-- Form end -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% include "admin/footer.html" %}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- base:js -->
+  <script src="../../static/adminResourses/js/vendor.bundle.base.js"></script>
+  <!-- inject:js -->
+  <script src="../../static/adminResourses/js/off-canvas.js"></script>
+  <script src="../../static/adminResourses/js/hoverable-collapse.js"></script>
+  <script src="../../static/adminResourses/js/template.js"></script>
+  <script src="../../static/adminResourses/js/settings.js"></script>
+  <script src="../../static/adminResourses/js/todolist.js"></script>
+  <!-- plugin js for this page -->
+  <script src="../../static/adminResourses/js/jquery.validate.min.js"></script>
+  <script src="../../static/adminResourses/js/bootstrap-maxlength.min.js"></script>
+  <!-- Custom js for this page-->
+  <script src="../../static/adminResourses/js/form-validation.js"></script>
+  <script src="../../static/adminResourses/js/bt-maxLength.js"></script>
+</body>
+
+</html>

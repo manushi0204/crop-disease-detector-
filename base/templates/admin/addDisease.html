@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Deed UI Admin</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="../../static/adminResourses/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../static/adminResourses/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../static/adminResourses/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../static/adminResourses/images/favicon.png"/>
+</head>
+
+<body class="sidebar-light">
+<div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+
+
+    {% include"admin/header.html" %}
+
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_sidebar.html -->
+
+
+        {% include"admin/menu.html" %}
+
+
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row grid-margin">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header bg-gradient-primary d-flex justify-content-between align-items-center">
+                                <h4 class="card-title mb-0 text-white">Add Disease</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" action="/insertDisease">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="cname">Crop Name</label>
+                                            <select name="disease_crop_id" class="form-control" required>
+                                                {% for i in crop_vo_list  %}
+                                                <option value="{{ i.crop_id }}">{{ i.crop_name }}
+                                                </option>
+                                                {% endfor  %}
+                                            </select>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="ccomment">Disease Name</label>
+                                            <textarea id="ccomment" class="form-control" name="disease_name"
+                                                      required></textarea>
+                                        </div>
+                                    <div class="form-group">
+                                            <label for="ccomment">Disease Description</label>
+                                            <textarea id="ccomment" class="form-control" name="disease_description"
+                                                      required></textarea>
+                                        </div>
+                                        <input class="btn btn-primary" type="submit" value="Add">
+                                        <a href="/viewDisease" class="btn btn-outline-secondary">Cancel</a>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:../../partials/_footer.html -->
+
+
+            {% include"admin/footer.html" %}
+
+
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- base:js -->
+<script src="../../static/adminResourses/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- inject:js -->
+<script src="../../static/adminResourses/js/off-canvas.js"></script>
+<script src="../../static/adminResourses/js/hoverable-collapse.js"></script>
+<script src="../../static/adminResourses/js/template.js"></script>
+<script src="../../static/adminResourses/js/settings.js"></script>
+<script src="../../static/adminResourses/js/todolist.js"></script>
+<!-- endinject -->
+<!-- plugin js for this page -->
+<script src="../../static/adminResourses/js/jquery.validate.min.js"></script>
+<script src="../../static/adminResourses/js/bootstrap-maxlength.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- Custom js for this page-->
+<script src="../../static/adminResourses/js/form-validation.js"></script>
+<script src="../../static/adminResourses/js/bt-maxLength.js"></script>
+<!-- End custom js for this page-->
+</body>
+
+</html>

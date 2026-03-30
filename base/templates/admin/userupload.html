@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload — Leaf Disease Detector</title>
+
+
+    <style>
+        #preview {
+  display: none;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+        </style>
+
+</head>
+<body class="userupload">
+
+  <header>
+    <h2> Leaf Disease Detector</h2>
+
+  </header>
+
+  <div class="upload-layout">
+
+    <!-- LEFT: form -->
+    <div class="upload-left">
+      <div class="glass-card upload-card">
+
+        <h1>Upload Leaf Image</h1>
+        <p class="subtitle">Select a clear photo of a plant leaf to detect possible diseases.</p>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+
+          <label class="file-label">
+            Choose Image
+            <input type="file" name="leaf_image" id="imageInput" accept="image/*" required>
+          </label>
+
+          <p id="filename">No file selected</p>
+
+          <img id="preview" src="" alt="Preview">
+
+          <button type="submit" class="btn btn-white btn-block"> Detect Disease</button>
+
+        </form>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="bottom-band" aria-hidden="true"></div>
+
+
+</body>
+</html>
